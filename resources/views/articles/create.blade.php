@@ -13,16 +13,25 @@
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputEmail1">Title</label>
-                    <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" class="form-control @error('title') is-invalid @enderror"  name="title" value="{{ old('title') }}">
+                    @if($errors->has('title'))
+                        <p style="color: darkred;">{{ $errors->first('title') }}</p>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Excerpt</label>
-                    <textarea class="form-control" name="excerpt" ></textarea>
+                    <textarea class="form-control @error('excerpt') is-invalid @enderror" name="excerpt" >{{ old('excerpt') }}</textarea>
+                    @if($errors->has('excerpt'))
+                        <p style="color: darkred;">{{ $errors->first('excerpt') }}</p>
+                    @endif
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputPassword1">Body</label>
-                    <textarea class="form-control" name="body"></textarea>
+                    <textarea class="form-control @error('body') is-invalid @enderror" name="body">{{ old('body') }}</textarea>
+                    @if($errors->has('body'))
+                        <p style="color: darkred;">{{ $errors->first('body') }}</p>
+                    @endif
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
