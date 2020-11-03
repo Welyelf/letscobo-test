@@ -25,13 +25,23 @@
                         <p style="color: darkred;">{{ $errors->first('excerpt') }}</p>
                     @endif
                 </div>
-
                 <div class="form-group">
                     <label for="exampleInputPassword1">Body</label>
                     <textarea class="form-control @error('body') is-invalid @enderror" name="body">{{ old('body') }}</textarea>
                     @if($errors->has('body'))
                         <p style="color: darkred;">{{ $errors->first('body') }}</p>
                     @endif
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Tags</label>
+                    <select name="tags[]" multiple class="form-control">
+                        @foreach($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('tags')
+                        <p style="color: darkred;">{{ $message }}</p>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

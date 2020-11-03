@@ -11,10 +11,14 @@
 |
 */
 
+//Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
-   return view('welcome');
+    return view('welcome2');
     //return ['foo' => 'bar'];
 });
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/about', function () {
     return view('about', [
@@ -23,7 +27,7 @@ Route::get('/about', function () {
     //return ['foo' => 'bar'];
 });
 
-Route::get('/articles', 'ArticlesController@index');
+Route::get('/articles', 'ArticlesController@index')->name('articles.index');
 Route::post('/articles', 'ArticlesController@store');
 Route::get('/articles/create', 'ArticlesController@create');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
@@ -62,3 +66,6 @@ Route::get('/posts/{post}',function ($post){
 });
 
 Route::get('/post/{post}', 'PostsController@show');
+Auth::routes();
+
+

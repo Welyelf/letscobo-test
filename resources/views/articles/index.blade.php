@@ -3,7 +3,7 @@
 @section ('about')
     <div id="wrapper">
         <div id="page" class="container">
-            @foreach($articles as $article)
+            @forelse ($articles as $article)
                 <div id="content">
                         <div class="title">
                             <a href="{{ $article->path() }}"> <h2>{{ $article->title  }}</h2> </a>
@@ -13,7 +13,10 @@
                             {{ $article->excerpt  }}
                         </p>
                 </div>
-            @endforeach
+
+                @empty
+                 <p>No Articles Found!</p>
+            @endforelse
         </div>
     </div>
 @endsection
