@@ -13,9 +13,27 @@
 
 //Route::get('/', 'HomeController@index')->name('home');
 
+app()->bind('example', function(){
+   // $foo = config('services.foo');
+   //return new \App\Example($foo);
+});
+
+Route::get('/sp', function () {
+    //    $container = new \App\Container();
+//    $container->bind('example', function (){
+//        return new \App\Example();
+//    });
+//    $example = $container->resolve('example');
+    $example1 = resolve(App\Example::class); // app()->make(App\Example::class)
+    // $example = resolve('example');
+    //$example->go();
+    ddd($example1);
+
+});
+
+
 Route::get('/', function () {
     return view('welcome2');
-    //return ['foo' => 'bar'];
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
