@@ -31,10 +31,12 @@ Route::get('/sp', function () {
 
 });
 
-
 Route::get('/', function () {
     return view('welcome2');
 });
+
+
+Route::get('/facade', 'HomeController@facade_test')->name('facade_test');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

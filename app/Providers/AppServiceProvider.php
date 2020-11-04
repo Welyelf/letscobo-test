@@ -16,9 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('example', function(){
-            $collabolator = new Colabolator();
-            $foo = config('services.foo');
-            return new Example($collabolator,$foo);
+            return new Example(); // Example::class
         });
     }
 
