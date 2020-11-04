@@ -58,10 +58,9 @@ Route::put('/articles/{article}', 'ArticlesController@update');
 // REST
 // GET, POST, PUT, DELETE
 
-Route::get('/contact', function () {
-    return view('contact');
-    //return ['foo' => 'bar'];
-});
+
+Route::get('/contact', 'ContactController@show')->name('contact.show');
+Route::post('/contact', 'ContactController@store');
 
 Route::get('test',function (){
     return view('test',[
