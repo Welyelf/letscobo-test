@@ -15,7 +15,13 @@ class ExampleTest extends TestCase
     public function testBasicTest()
     {
         $response = $this->get('/');
-
         $response->assertStatus(200);
     }
+
+    public function test_home(){
+        $this->get('/')->assertSee('Laravel');
+        $this->get('/')->assertSee('Laravel');
+
+    }
+
 }

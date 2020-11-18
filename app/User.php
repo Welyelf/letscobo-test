@@ -45,5 +45,10 @@ class User extends Authenticatable
         return $this->hasMany(Project::class); // select * from projects where user_id=1
     }
 
+    public function add()
+    {
+
+    }
+
 
 }
